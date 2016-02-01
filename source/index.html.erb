@@ -1,10 +1,124 @@
----
-title: Le Wagon Middleman boilerplate
----
+<div class="banner">
+  <video autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" id="bgvid">
+    <source src="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/homepage.webm" type="video/webm">
+    <source src="https://a0.muscache.com/airbnb/static/Paris-P1-1.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <div class="wrapper-content">
+      <h1>WELCOME HOME</h1>
+      <p>Rent unique places to stay from local hosts in 190+ countries.</p>
+      <form action="" class="form-inline">
+          <input type="text" class="form-control" id="place" placeholder="Where are you sleeping ?">
+          <input type="date" class="form-control" id="place" placeholder="Arrivée">
+          <input type="date" class="form-control" id="place" placeholder="Départ">
+          <select class="form-control">
+              <option value="2">2 voyageurs</option>
+              <option value="3">3 voyageurs</option>
+              <option value="4">4 voyageurs</option>
+              <option value="plus">+ 4 voyageurs</option>
+          </select>
+          <% link_to "Search", "", class: "btn btn-danger" %>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Your features code -->
+<div class="text-center padded features">
+  <div class="container">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag "globe.png", alt: "Discover World" %>
+      <h2>Discover the world</h2>
+      <p>The earth is your new home.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag "dollar.png", alt: "Pay Online"%>
+      <h2>Pay online</h2>
+      <p>No cash issues anymore.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag "beer.png", alt: "Discover new culture" %>
+      <h2>Meet people</h2>
+      <p>Discover new culture and lifestyle.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag "heart.png", alt: "Share and love" %>
+      <h2>Share and love</h2>
+      <p>Join a community you will love.</p>
+    </div>
+  </div>
+</div>
+<div class="wrapper-grey padded">
+  <h2 class="text-center">Your next trip</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-london.jpeg" %>');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2>Some stuff</h2>
+            <p>Very cool stuff, useful and smart</p>
+          </div>
+          <%= image_tag "romain.jpeg", class: "card-user avatar" %>
+          <%= link_to "", "#", class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-brussels.jpeg" %>');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2>Some stuff</h2>
+            <p>Very cool stuff, useful and smart</p>
+          </div>
+          <%= image_tag "anne.jpg", class: "card-user avatar" %>
+          <%= link_to "", "#", class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+         <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-paris.jpg" %>');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+             <h2>Some stuff</h2>
+             <p>Very cool stuff, useful and smart</p>
+            </div>
+            <%= image_tag "seb.jpg", class: "card-user avatar" %>
+           <%= link_to "", "#", class: "card-link" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Your newsletter code -->
+<div class="text-center padded">
+  <h2>Get news from us</h2>
+  <p>Leave us your mail and get news from us</p>
+  <form action="" class="form-inline">
+    <input type="email" class="form-control" id="email" placeholder="antoine@gmail.com">
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </form>
+</div>
 
-<div class="welcome text-center padded">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<!-- My map -->
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script type="text/javascript">
+  var myLatlng = new google.maps.LatLng(48.8509647,2.3740905);
+
+  var myOptions = {
+    zoom: 16,
+    center: myLatlng,
+    scrollwheel: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#0096aa"},{"weight":"0.30"},{"saturation":"-75"},{"lightness":"5"},{"gamma":"1"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#0096aa"},{"saturation":"-75"},{"lightness":"5"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"color":"#ffe146"},{"visibility":"on"},{"weight":"6"},{"saturation":"-28"},{"lightness":"0"}]},{"featureType":"administrative","elementType":"labels.icon","stylers":[{"visibility":"on"},{"color":"#e6007e"},{"weight":"1"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#ffe146"},{"saturation":"-28"},{"lightness":"0"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"color":"#0096aa"},{"visibility":"simplified"},{"saturation":"-75"},{"lightness":"5"},{"gamma":"1"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"visibility":"on"},{"color":"#ffe146"},{"weight":8},{"saturation":"-28"},{"lightness":"0"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#0096aa"},{"weight":8},{"lightness":"5"},{"gamma":"1"},{"saturation":"-75"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"simplified"},{"color":"#0096aa"},{"saturation":"-75"},{"lightness":"5"},{"gamma":"1"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#0096aa"},{"saturation":"-75"},{"lightness":"5"},{"gamma":"1"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"simplified"},{"color":"#ffe146"},{"saturation":"-28"},{"lightness":"0"}]},{"featureType":"water","elementType":"labels.icon","stylers":[{"visibility":"off"}]}] // TODO: replace [] by array from https://snazzymaps.com/
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title: "You are here!"
+  });
+</script>
+<!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
